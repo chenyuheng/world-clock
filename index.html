@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>World Clock</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row"><h1>World Clock</h1></div>
+      <div class="row">
+        <div class="col s12 m6">
+          <form action="#">
+            <p>
+              <label>
+                <input name="clock_type" type="radio" checked />
+                <span>Longitute Time, align to Second</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input name="clock_type" type="radio" />
+                <span>Longitute Time, align to Minute</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input name="clock_type" type="radio"  />
+                <span>Time Zone Time</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 m6">
+          <div class="input-field col s8">
+            <i class="material-icons prefix">location_city</i>
+            <input type="text" id="autocomplete-input" class="autocomplete">
+            <label for="autocomplete-input">Add a City</label>
+          </div>
+          <div class="input-field col s4">
+            <div class="btn"><i class="material-icons">add</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <i class="material-icons circle green">insert_chart</i>
+          <span class="brand-logo">北京17:22:59</span><br>
+              Longitute: 116.40 E | Time Zone: +8
+          </p>
+          <p class="secondary-content">
+            <a class="waves-effect waves-light btn-small red"><i class="material-icons">delete</i></a>
+          </p>
+        </li>
+      </ul>
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
