@@ -155,6 +155,57 @@ function Title() {
     );
 }
 
+class Links extends React.Component {
+    constructor(props) {
+        super(props);
+        this.dynamicallyLoadScript = this.dynamicallyLoadScript.bind(this);
+    }
+
+    componentDidMount() {
+        this.dynamicallyLoadScript("https://buttons.github.io/buttons.js");
+    }
+
+    dynamicallyLoadScript(url) {
+        var script = document.createElement("script");  // create a script DOM node
+        script.src = url;  // set its src to the provided URL
+       
+        document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+    }
+
+    render() {
+        return (
+            <div>
+                <a className="github-button" href="https://github.com/chenyuheng" aria-label="Follow @chenyuheng on GitHub">Follow @chenyuheng</a>
+                &nbsp;
+                <a className="github-button" href="https://github.com/chenyuheng/world-clock" data-icon="octicon-star" aria-label="Star chenyuheng/world-clock on GitHub">Star</a>
+            </div>
+        );
+    }
+}
+
+class Description extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            description: ""
+        };
+    }
+
+    componentDidMount() {
+        fetch("README.md").then(response => response.text()).then(text => {
+            this.setState({
+                description: text
+            });
+        });
+    }
+
+    render() {
+        return (
+            <div dangerouslySetInnerHTML={{__html: this.state.description}} />
+        );
+    }
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -188,6 +239,8 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <Title />
+                    <Links />
+                    <Description />
                 </div>
                 <div className="row">
                     <div className="col s12 m6">
