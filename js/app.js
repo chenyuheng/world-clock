@@ -54,7 +54,7 @@ class Time extends React.Component {
             return;    
         }
         this.setState({
-            dateStr: new Date().toLocaleTimeString(window.navigator.language, { timezone: this.props.timezone })
+            dateStr: new Date().toLocaleTimeString(window.navigator.language, { timeZone: this.props.timeZone })
         });
     }
 
@@ -71,7 +71,7 @@ class Time extends React.Component {
             minuteOffset = Math.floor(minuteOffset);
         }
         date = new Date(new Date().getTime() + minuteOffset * 60 * 1000);
-        return date.toLocaleTimeString(window.navigator.language, { timezone: "UTC" });
+        return date.toLocaleTimeString(window.navigator.language, { timeZone: "UTC" });
     }
 }
 
@@ -90,8 +90,8 @@ class CityClock extends React.Component {
             <li className="collection-item avatar">
             <i className="material-icons circle green">access_time</i>
             <p>
-            <Time longitude={this.props.longitude} timezone={this.props.timezone} /> | {this.props.name}<br />
-                Longitute: {longitudeToString(this.props.longitude)} | Time Zone: {this.props.timezone}
+            <Time longitude={this.props.longitude} timeZone={this.props.timeZone} /> | {this.props.name}<br />
+                Longitute: {longitudeToString(this.props.longitude)} | Time Zone: {this.props.timeZone}
             </p>
             <p className="secondary-content">
             <a className="waves-effect waves-light btn-small red" onClick={this.handleDelete}><i className="material-icons">delete</i></a>
@@ -269,7 +269,7 @@ class ClockList extends React.Component {
     render() {
         const shownCities = this.props.cities;
         const cityList = shownCities.map((city) =>
-            <CityClock key={city} name={city} longitude={cities[city].longitude} timezone={cities[city].timezone} onChange={this.handleDelete} />
+            <CityClock key={city} name={city} longitude={cities[city].longitude} timeZone={cities[city].timeZone} onChange={this.handleDelete} />
         );
         return (
             <ul className="collection">
