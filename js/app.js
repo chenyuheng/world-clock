@@ -33,3 +33,5 @@ function init() {
             root.render(<App />);
         });
 }
+
+init();
